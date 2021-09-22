@@ -1,4 +1,7 @@
-﻿using System;
+﻿using System.ComponentModel.Design;
+using System.ComponentModel;
+using System.Net;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace demonet.Migrations
