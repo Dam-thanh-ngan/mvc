@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using demonet.Data;
+
 namespace demonet.Migrations
 {
     [DbContext(typeof(MvcMovieContext))]
@@ -22,16 +23,25 @@ namespace demonet.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Genre")
+                        .IsRequired()
+                        .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<string>("Rating")
+                        .IsRequired()
+                        .HasMaxLength(5)
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Title")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
